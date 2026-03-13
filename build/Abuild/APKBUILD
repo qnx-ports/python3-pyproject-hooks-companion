@@ -2,7 +2,7 @@
 # Alpine-Maintainer: Patrycja Rosa <alpine@ptrcnull.me>
 pkgname=python3-pyproject-hooks
 pkgver=1.0.0
-pkgrel=2
+pkgrel=${pkgrel:-0}
 pkgdesc="Low-level library for calling build-backends in 'pyproject.toml'-based project"
 url="https://pyproject-hooks.readthedocs.io/"
 arch="noarch"
@@ -31,6 +31,7 @@ package() {
         dist/pyproject_hooks*.whl
 }
 
+options="$options ${DISABLE_CHECK:+!check}"
 sha512sums="
 fca9b69859d7e3949b158c2879ba7ebc7305f1edaacdd84b71a92565010176d1194be03a21fd6b9aa65d175cfd8243ba3a50aab617fb56ceac6b263da6613e17  py3-pyproject-hooks-1.0.0.tar.gz
 "
